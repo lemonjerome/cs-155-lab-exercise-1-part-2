@@ -468,8 +468,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    62,    62,    69,    70,    71,    75,    76,    77,    81,
-      82,    86,    91,    94
+       0,    62,    62,    68,    69,    70,    74,    75,    76,    80,
+      81,    85,    90,    93
 };
 #endif
 
@@ -1380,53 +1380,52 @@ yyreduce:
         case 2:
 #line 62 "calc.y"
     {
-        Node *root = make_node("None", 1, (yyvsp[(1) - (1)].node));
-        print_tree(root);
+        print_tree((yyvsp[(1) - (1)].node));
     ;}
     break;
 
   case 3:
-#line 69 "calc.y"
+#line 68 "calc.y"
     { (yyval.node) = make_node("expr", 3, (yyvsp[(1) - (3)].node), make_node("+", 0), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 4:
-#line 70 "calc.y"
+#line 69 "calc.y"
     { (yyval.node) = make_node("expr", 3, (yyvsp[(1) - (3)].node), make_node("-", 0), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 5:
-#line 71 "calc.y"
+#line 70 "calc.y"
     { (yyval.node) = make_node("expr", 1, (yyvsp[(1) - (1)].node)); ;}
     break;
 
   case 6:
-#line 75 "calc.y"
+#line 74 "calc.y"
     { (yyval.node) = make_node("term", 3, (yyvsp[(1) - (3)].node), make_node("*", 0), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 7:
-#line 76 "calc.y"
+#line 75 "calc.y"
     { (yyval.node) = make_node("term", 3, (yyvsp[(1) - (3)].node), make_node("/", 0), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 8:
-#line 77 "calc.y"
+#line 76 "calc.y"
     { (yyval.node) = make_node("term", 1, (yyvsp[(1) - (1)].node)); ;}
     break;
 
   case 9:
-#line 81 "calc.y"
+#line 80 "calc.y"
     { (yyval.node) = make_node("exponent", 3, (yyvsp[(1) - (3)].node), make_node("^", 0), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 10:
-#line 82 "calc.y"
+#line 81 "calc.y"
     { (yyval.node) = make_node("exponent", 1, (yyvsp[(1) - (1)].node)); ;}
     break;
 
   case 11:
-#line 86 "calc.y"
+#line 85 "calc.y"
     {
         char buf[32];
         snprintf(buf, sizeof(buf), "%d", (yyvsp[(1) - (1)].ival));
@@ -1435,14 +1434,14 @@ yyreduce:
     break;
 
   case 12:
-#line 91 "calc.y"
+#line 90 "calc.y"
     {
         (yyval.node) = make_node("factor", 3, make_node("(", 0), (yyvsp[(2) - (3)].node), make_node(")", 0));
     ;}
     break;
 
   case 13:
-#line 94 "calc.y"
+#line 93 "calc.y"
     {
         (yyval.node) = make_node("factor", 2, make_node("-", 0), (yyvsp[(2) - (2)].node));
     ;}
@@ -1450,7 +1449,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1454 "calc.tab.c"
+#line 1453 "calc.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1664,7 +1663,7 @@ yyreturn:
 }
 
 
-#line 98 "calc.y"
+#line 97 "calc.y"
 
 void yyerror(const char *msg) {
 fprintf(stderr, "Parse error: %s\n", msg);

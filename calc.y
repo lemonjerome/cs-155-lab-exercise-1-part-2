@@ -60,8 +60,7 @@ int  yylex(void);
 %%
 program:
     expr {
-        Node *root = make_node("None", 1, $1);
-        print_tree(root);
+        print_tree($1);
     }
 ;
 
